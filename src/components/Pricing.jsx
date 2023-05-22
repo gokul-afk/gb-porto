@@ -192,9 +192,9 @@ export function Pricing() {
     <div className="py-4 md:py-8 px-6 md:px-10  md:min-h-96">
     <div className="flex flex-col md:flex-row">
     <div className="mt-16 flex-grow md:mt-0 md:ml-20">
-      <h3 className="text-2xl font-bold">{"What's"} your credit score? </h3>
+      <h3 className="text-2xl font-bold">{"Slider"} with a twist </h3>
       <label className="label">
-        <span className="label-text text-lg">Your credit score helps determine the interest rates you may qualify for.
+        <span className="label-text text-lg">This was one of the first ever sliders that I made in react.
 
 
 </span>
@@ -216,7 +216,20 @@ export function Pricing() {
           }}
         />
         <div className={`text-xs mt-1 ${error?" text-red-600 visible":"invisible"}`}>{errorMsg}</div>
-        </div></div>
+        </div>
+        <div onClick={(e) => {
+          settoggled(false)
+        }}
+          className="cursor-pointer   flex items-center">
+            <div className=' rounded-full ml-2 p-3 hover:bg-gray-200'>
+            <svg  width="18"  height="18"  viewBox="0 0 18 18"  fill="none"  xmlns="http://www.w3.org/2000/svg" >
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M15.7933 2.2069C15.3346 1.75016 14.7124 1.49567 14.0651 1.50006C13.4178 1.50444 12.7991 1.76732 12.3467 2.23023L2.68 11.8969L1.5 16.5002L6.10333 15.3196L15.77 5.6529C16.233 5.20064 16.496 4.58201 16.5004 3.93477C16.5048 3.28752 16.2502 2.66539 15.7933 2.2069Z" stroke="#330573" stroke-width="1.5" strokeLinecap="round" strokeLinejoin="round" ></path>
+          <path d="M12.0703 2.50684L15.493 5.9295" stroke="#330573" stroke-width="1.5" strokeLinecap="round" strokeLinejoin="round"  ></path>
+          <path  d="M2.68164 11.896L6.10764 15.316"  stroke="#330573"  stroke-width="1.5"  strokeLinecap="round"  strokeLinejoin="round" ></path>
+        </svg>
+            </div>
+      
+    </div></div>
         ):(<><div className="mt-8 flex justify-center">
             <div className="flex justify-center font-light ">
             <span className="pt-2 text-2xl font-medium">&nbsp;</span>
@@ -267,37 +280,32 @@ export function Pricing() {
           
         </div>
         <div className='flex px-4'>
-        <div className='w-1/4'> <span className=''>Poor </span><span className='invisible md:visible'>(300 - 619)</span></div>
-            <div className='w-1/4'> <span className=''>Fair </span><span className='invisible md:visible'>(620 - 659)</span></div>
-            <div className='w-1/4'>Good <span className='invisible md:visible'>(660 - 719)</span></div>
-            <div className='w-1/4'>Excellent <span className='invisible md:visible'>(720 - 850)</span></div>
+        <div className='w-1/4'> <span className=''>Poor </span><span className='invisible lg:visible'>(300 - 619)</span></div>
+            <div className='w-1/4'> <span className=''>Fair </span><span className='invisible lg:visible'>(620 - 659)</span></div>
+            <div className='w-1/4'>Good <span className='invisible lg:visible'>(660 - 719)</span></div>
+            <div className='w-1/4'>Excellent <span className='invisible lg:visible'>(720 - 850)</span></div>
         </div>
       </div>
         
         </> )}
     </div>
 
-      {/* <div className="mt-10 flex flex-col">
-        <label>SELECT YOUR CREDIT SCORE*</label>
-        <select
-          onChange={(e) => {
-            console.log(typeof e.target.value)
-            onselectionchange(e.target.value)
-          }}
-          value={creditScore}
-          className="select-bordered select w-full max-w-xs"
-        >
-          <option value="">Your Score</option>
-          <option value="<640">{'<640'}</option>
-          <option value="640-679">640-679</option>
-          <option value="680-719">680-719</option>
-          <option value="720-739">720-739</option>
-          <option value="740+">740+</option>
-        </select>
-      </div> */}
       
     </div>
+    <div className="mt-10 flex flex-col">
+        <label>Actual Slider Values</label>
+        <div>{rangeValues}</div>
+        <label>Current Section Units</label>
+        <div className='flex'>
+        <div  className={`w-1/4 h-6 rounded-l-md flex justify-center text-white ${(parseInt(creditScore)>299 && parseInt(creditScore)<620)?"bg-red-400":"invisible"}`}>320</div>
+        <div className={`w-1/4  h-6 flex justify-center  text-white ${(parseInt(creditScore)>619 && parseInt(creditScore)<660)?"bg-orange-400":"invisible"}`}>40</div>
+        <div className={`w-1/4   h-6 flex justify-center  text-white ${(parseInt(creditScore)>659 && parseInt(creditScore)<720)?"bg-green-500":"invisible"}`}>60</div>
+        <div className={`w-1/4  h-6 flex justify-center  rounded-r-md text-white  ${(parseInt(creditScore)>719 && parseInt(creditScore)<851)?"bg-green-600":"invisible"}`}>130</div>
+        </div>
+      </div>
+      
   </div>
+  
   </div>
   )
 }
