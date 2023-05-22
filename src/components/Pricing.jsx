@@ -194,42 +194,44 @@ export function Pricing() {
     <div className="mt-16 flex-grow md:mt-0 md:ml-20">
       <h3 className="text-2xl font-bold">{"Slider"} with a twist </h3>
       <label className="label">
-        <span className="label-text text-lg">This was one of the first ever sliders that I made in react.
+        <span className="label-text text-lg pl-3">One of my first ever react components made from scratch.
 
 
 </span>
       </label>
       <div className="">
-        {toggled? (
+        {toggled ? (
         <div className="mt-8 flex ">
-            <div className="w-full ">
+            <div className="w-1/2 ">
                 <div className={`text-xs font-light mb-1 ${error?" text-red-600":null}`}>CREDIT SCORE</div>
             <input
           type="text"
           placeholder="10"
           maxlength="3"
           size="3"
-          className={`input-bordered w-full ${error?"border border-red-500 focus:ring-red-500 focus:border-red-500":"focus:ring-black focus:border-black"} `}
+          className={`input-bordered w-1/2 ${error?"border border-red-500 focus:ring-red-500 focus:border-red-500":"focus:ring-black focus:border-black"} `}
           value={isValid(creditScore)}
           onChange={(e) => {
             onPPInputChange(e.target.value)
           }}
         />
-        <div className={`text-xs mt-1 ${error?" text-red-600 visible":"invisible"}`}>{errorMsg}</div>
+        <div  className={`text-xs mt-1 ${error?" text-red-600 visible":"invisible"}`}>{errorMsg}</div>
         </div>
-        <div onClick={(e) => {
-          settoggled(false)
-        }}
-          className="cursor-pointer   flex items-center">
-            <div className=' rounded-full ml-2 p-3 hover:bg-gray-200'>
-            <svg  width="18"  height="18"  viewBox="0 0 18 18"  fill="none"  xmlns="http://www.w3.org/2000/svg" >
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M15.7933 2.2069C15.3346 1.75016 14.7124 1.49567 14.0651 1.50006C13.4178 1.50444 12.7991 1.76732 12.3467 2.23023L2.68 11.8969L1.5 16.5002L6.10333 15.3196L15.77 5.6529C16.233 5.20064 16.496 4.58201 16.5004 3.93477C16.5048 3.28752 16.2502 2.66539 15.7933 2.2069Z" stroke="#330573" stroke-width="1.5" strokeLinecap="round" strokeLinejoin="round" ></path>
-          <path d="M12.0703 2.50684L15.493 5.9295" stroke="#330573" stroke-width="1.5" strokeLinecap="round" strokeLinejoin="round"  ></path>
-          <path  d="M2.68164 11.896L6.10764 15.316"  stroke="#330573"  stroke-width="1.5"  strokeLinecap="round"  strokeLinejoin="round" ></path>
-        </svg>
-            </div>
-      
-    </div></div>
+          <div onClick={(e) => {
+            settoggled(false)
+          }}
+            className="cursor-pointer   flex items-center">
+              <div className=' rounded-full ml-2 p-3 hover:bg-gray-200'>
+              <svg  width="18"  height="18"  viewBox="0 0 18 18"  fill="none"  xmlns="http://www.w3.org/2000/svg" >
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M15.7933 2.2069C15.3346 1.75016 14.7124 1.49567 14.0651 1.50006C13.4178 1.50444 12.7991 1.76732 12.3467 2.23023L2.68 11.8969L1.5 16.5002L6.10333 15.3196L15.77 5.6529C16.233 5.20064 16.496 4.58201 16.5004 3.93477C16.5048 3.28752 16.2502 2.66539 15.7933 2.2069Z" stroke="#330573" stroke-width="1.5" strokeLinecap="round" strokeLinejoin="round" ></path>
+            <path d="M12.0703 2.50684L15.493 5.9295" stroke="#330573" stroke-width="1.5" strokeLinecap="round" strokeLinejoin="round"  ></path>
+            <path  d="M2.68164 11.896L6.10764 15.316"  stroke="#330573"  stroke-width="1.5"  strokeLinecap="round"  strokeLinejoin="round" ></path>
+          </svg>
+              </div>
+        
+      </div>
+        
+        </div>
         ):(<><div className="mt-8 flex justify-center">
             <div className="flex justify-center font-light ">
             <span className="pt-2 text-2xl font-medium">&nbsp;</span>
@@ -237,7 +239,7 @@ export function Pricing() {
             </div>
             
             <div onClick={(e) => {
-          settoggled(true)
+          settoggled(true) , seterror(false), setvalidCredit(creditScore)
         }}
           className="cursor-pointer   flex items-center">
             <div className=' rounded-full ml-2 p-3 hover:bg-gray-200'>
@@ -256,7 +258,7 @@ export function Pricing() {
         <div className="mt-4 sm:pr-10">
         <div className="form-control">
             
-          <div className='z-10 pointer-events-none	 flex cursor-pointer relative top-11 px-5'>
+          <div className='z-10 pointer-events-none	 flex cursor-pointer relative top-11 px-4'>
           {/* <div className=" bg-black">&nbsp;&nbsp;</div> */}
           {/* {` justify-center flex ${className}`} */}
           <div className={`w-1/4 rounded-l-md ${(parseInt(creditScore)>299 && parseInt(creditScore)<620)?"bg-red-400":"bg-red-400/50"}`}></div>
