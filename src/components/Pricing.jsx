@@ -202,14 +202,14 @@ export function Pricing() {
       <div className="">
         {toggled ? (
         <div className="mt-8 flex ">
-            <div className="w-1/2 ">
+            <div className="w-8/12 ">
                 <div className={`text-xs font-light mb-1 ${error?" text-red-600":null}`}>CREDIT SCORE</div>
             <input
           type="text"
           placeholder="10"
           maxlength="3"
           size="3"
-          className={`input-bordered w-1/2 ${error?"border border-red-500 focus:ring-red-500 focus:border-red-500":"focus:ring-black focus:border-black"} `}
+          className={`input-bordered w-8/12  `}
           value={isValid(creditScore)}
           onChange={(e) => {
             onPPInputChange(e.target.value)
@@ -218,7 +218,7 @@ export function Pricing() {
         <div  className={`text-xs mt-1 ${error?" text-red-600 visible":"invisible"}`}>{errorMsg}</div>
         </div>
           <div onClick={(e) => {
-            settoggled(false)
+            settoggled(false),onPPChange(rangeValue)
           }}
             className="cursor-pointer   flex items-center">
               <div className=' rounded-full ml-2 p-3 hover:bg-gray-200'>
